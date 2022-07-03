@@ -1,4 +1,4 @@
-﻿using Parmezzan.Services.ProductAPI.Repository.Dto;
+﻿using Parmezzan.Services.ProductAPI.Models.Dto;
 
 namespace Parmezzan.Services.ProductAPI.Repository
 {

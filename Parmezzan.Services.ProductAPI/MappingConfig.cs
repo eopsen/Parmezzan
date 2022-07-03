@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Parmezzan.Services.ProductAPI.Models;
-using Parmezzan.Services.ProductAPI.Repository.Dto;
+using Parmezzan.Services.ProductAPI.Models.Dto;
 
 namespace Parmezzan.Services.ProductAPI
 {

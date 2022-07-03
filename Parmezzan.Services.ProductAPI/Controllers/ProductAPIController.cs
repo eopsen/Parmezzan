@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Parmezzan.Services.ProductAPI.Models.Dto;
 using Parmezzan.Services.ProductAPI.Repository;
-using Parmezzan.Services.ProductAPI.Repository.Dto;
 
 namespace Parmezzan.Services.ProductAPI.Controllers
 {

@@ -1,4 +1,4 @@
-﻿namespace Parmezzan.Services.ProductAPI.Repository.Dto
+﻿namespace Parmezzan.Web.Models.Dto
 {
     public class ProductDto
     {

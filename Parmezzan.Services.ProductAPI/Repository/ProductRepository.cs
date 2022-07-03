@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Parmezzan.Services.ProductAPI.DbContextes;
 using Parmezzan.Services.ProductAPI.Models;
-using Parmezzan.Services.ProductAPI.Repository.Dto;
+using Parmezzan.Services.ProductAPI.Models.Dto;
 
 namespace Parmezzan.Services.ProductAPI.Repository
 {
