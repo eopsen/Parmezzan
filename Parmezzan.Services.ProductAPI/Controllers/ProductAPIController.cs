@@ -35,7 +35,7 @@ namespace Parmezzan.Services.ProductAPI.Controllers
         }
 
         [HttpGet]
-        [Route("id")]
+        [Route("{id}")]
         public async Task<object> Get(int id)
         {
             try
@@ -90,6 +90,7 @@ namespace Parmezzan.Services.ProductAPI.Controllers
         }
 
         [HttpDelete]
+        [Route("{id}")]
         public async Task<object> Delete(int id)
         {
             try
