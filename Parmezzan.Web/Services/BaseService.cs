@@ -3,6 +3,7 @@ using Parmezzan.Web.Models;
 using Parmezzan.Web.Models.Dto;
 using Parmezzan.Web.Services.IServices;
 using System;
+using System.Net.Http.Headers;
 using System.Text;
 
 namespace Parmezzan.Web.Services
@@ -31,6 +32,11 @@ namespace Parmezzan.Web.Services
                 if (apiRequest.Data != null)
                 {
                     message.Content = new StringContent(JsonConvert.SerializeObject(apiRequest.Data), Encoding.UTF8, "application/json");
+                }
+
+                if (!string.IsNullOrEmpty(apiRequest.AccessToken))
+                {
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiRequest.AccessToken);
                 }
 
                 HttpResponseMessage apiResponse = null;

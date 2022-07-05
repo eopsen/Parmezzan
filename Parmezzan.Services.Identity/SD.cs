@@ -18,7 +18,7 @@ namespace Parmezzan.Services.Identity
 
         public static IEnumerable<ApiScope> ApiScopes =>
             new List<ApiScope> { 
-                new ApiScope("Parmezzan", "Parmezzan Server"),
+                new ApiScope("parmezzan", "Parmezzan Server"),
                 new ApiScope(name: "read", displayName: "Read"),
                 new ApiScope(name: "write", displayName: "Write"),
                 new ApiScope(name: "delete", displayName : "Delete")
@@ -39,8 +39,8 @@ namespace Parmezzan.Services.Identity
                     ClientId = "parmezzan",
                     ClientSecrets = { new Secret ("secret".Sha256())},
                     AllowedGrantTypes = GrantTypes.Code,
-                    RedirectUris = { "https://localhost:14533/signin-oidc" },
-                    PostLogoutRedirectUris = { "https://localhost:14533/signout-callback-oidc"},
+                    RedirectUris = { "https://localhost:7062/signin-oidc" },//14533
+                    PostLogoutRedirectUris = { "https://localhost:7062/signout-callback-oidc"},
                     AllowedScopes = new List<string>
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
