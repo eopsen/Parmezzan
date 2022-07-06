@@ -38,7 +38,7 @@ namespace Parmezzan.Services.ShoppingCartAPI.Repository
             Cart cart = _mapper.Map<Cart>(cartDto);
 
             var prodInDb = _db.Products
-                .FirstOrDefault(p => p.ProductId == cartDto.CartDetails.FirstOrDefault().ProductId);
+                .FirstOrDefault(p => p.ProductId == cart.CartDetails.FirstOrDefault().ProductId);
 
             if (prodInDb == null)
             {
@@ -76,6 +76,8 @@ namespace Parmezzan.Services.ShoppingCartAPI.Repository
                 {
                     cart.CartDetails.FirstOrDefault().Count += cartDetailsFromDb.Count;
                     cart.CartDetails.FirstOrDefault().Product = null;
+                    cart.CartDetails.FirstOrDefault().CartDetailId = cartDetailsFromDb.CartDetailId;
+                    cart.CartDetails.FirstOrDefault().CartHeaderId = cartDetailsFromDb.CartHeaderId;
                     _db.CartDetails.Update(cart.CartDetails.FirstOrDefault());
                     await _db.SaveChangesAsync();
                 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Parmezzan.Services.ShoppingCartAPI.Messages;
 using Parmezzan.Services.ShoppingCartAPI.Models.Dto;
+using Parmezzan.Services.ShoppingCartAPI.RabbitMQSender;
 using Parmezzan.Services.ShoppingCartAPI.Repository;
 
 namespace Parmezzan.Services.ShoppingCartAPI.Controllers
@@ -11,11 +12,13 @@ namespace Parmezzan.Services.ShoppingCartAPI.Controllers
     {
         private readonly ICartRepository _cartRepository;
         protected ResponseDto _response;
+        private readonly IRabbitMQCartMessageSender _rabbitMQCartMessageSender;
 
-        public CartAPIController(ICartRepository cartRepository)
+        public CartAPIController(ICartRepository cartRepository, IRabbitMQCartMessageSender rabbitMQCartMessageSender)
         {
             _cartRepository = cartRepository;
             _response = new ResponseDto();
+            _rabbitMQCartMessageSender = rabbitMQCartMessageSender;
         }
 
         [HttpGet("GetCart/{userId}")]
@@ -108,7 +111,9 @@ namespace Parmezzan.Services.ShoppingCartAPI.Controllers
                 }
 
                 checkoutHeader.CartDetails = cartDto.CartDetails;
-                //TODO send messages
+
+                _rabbitMQCartMessageSender.SendMessage(checkoutHeader, "checkoutqueue");
+                await _cartRepository.ClearCart(checkoutHeader.UserId);
 
             }
             catch (Exception ex)
