@@ -4,15 +4,16 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Parmezzan.Services.OrderAPI;
 using Parmezzan.Services.OrderAPI.DbContextes;
+using Parmezzan.Services.OrderAPI.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-
-//builder.Services.AddScoped<ICartRepository, CartRepository>();
-
+var optionBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+optionBuilder.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+builder.Services.AddSingleton(new OrderRepository(optionBuilder.Options));
 
 builder.Services.AddControllers();
 builder.Services.AddAuthentication("Bearer")
