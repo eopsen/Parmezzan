@@ -35,6 +35,12 @@ namespace Parmezzan.Web.Controllers
             return View();
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Checkout()
+        {
+            return View(await LoadCartDtoBasedOnLoggedUser());
+        }
+
         private async Task<CartDto> LoadCartDtoBasedOnLoggedUser()
         {
             var userId = User.Claims.Where(u => u.Type == "sub")?.FirstOrDefault()?.Value;

@@ -1,0 +1,124 @@
+﻿@model Parmezzan.Web.Models.Dto.CartDto
+
+
+@if (Model != null && Model.CartDetails.Count() > 0)
+{
+    <form method="post">
+        <input asp-for="CartHeader.UserId" hidden>
+        <input asp-for="CartHeader.CartHeaderId" hidden>
+        <input asp-for="CartHeader.OrderTotal" hidden>    
+
+        <div>
+            <span style="font-size:25px;" class="text-warning">Wprowadź dane by złożyć zamówienie:</span>
+            <br />
+        </div>
+        <div class="border mt-2">
+            <div class="container row">
+                <div class="col-7">
+                    <div class="row">
+                        <div class="col-12">
+                            <label class="col-form-label">Imię :</label>
+                            <input asp-for="CartHeader.FirstName" class="form-control" />
+                        </div>
+                        <div class="col-12">
+                            <label class="col-form-label">Nazwisko :</label>
+                            <input asp-for="CartHeader.LastName" class="form-control" />
+                        </div>
+                        <div class="col-12">
+                            <label class="col-form-label">Email :</label>
+                            <input asp-for="CartHeader.Email" class="form-control" />
+                        </div>
+                        <div class="col-12">
+                            <label class="col-form-label">Telefon :</label>
+                            <input asp-for="CartHeader.Phone" class="form-control" />
+                        </div>
+                        <div class="col-12">
+                            <label class="col-form-label">Godzina odbioru :</label>
+                            <input asp-for="CartHeader.PickupDateTime" class="form-control form_datetime" type="text">
+                        </div>
+                        <div class="col-12">
+                            <label class="col-form-label">Numer karty :</label>
+                            <input asp-for="CartHeader.CardNumber" class="form-control" />
+                        </div>
+
+                        <div class="col-12">
+                            <label class="col-form-label">CVV :</label>
+                            <input asp-for="CartHeader.CVV" class="form-control" />
+                        </div>
+
+                        <div class="col-12 pb-4">
+                            <label class="col-form-label">Data ważności :</label>
+                            <input asp-for="CartHeader.ExpiryMonthYear" placeholder="MMYY" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <div class=" d-none d-lg-block">
+                                <div class="row text-danger" >
+                                    <div class="col-6">
+                                       Szczegóły
+                                    </div>
+
+                                    <div class="col-3">
+                                        Cena
+                                    </div>
+                                    <div class="col-3">
+                                        Ilość
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr />
+
+                            @foreach (var cartObj in Model.CartDetails)
+                            {
+                                <div class="row h-100">
+                                    <div class="col-6">
+                                        <span style="font-size:20px">@cartObj.Product.Name</span>
+                                    </div>
+
+                                    <div class="col-3" style="font-size:11px;">
+                                        <span style="font-size:17px;"> @string.Format("{0:c}", cartObj.Product.Price)</span>
+
+                                    </div>
+                                    <div class="col-3" style="font-size:11px;">
+                                        <span style="font-size:17px;"> @cartObj.Count</span>
+                                    </div>
+                                </div>
+                                <hr />
+                            }
+                                 
+                            <div class="row">
+                                <div class="col-12 text-right pr-4 text-danger">
+                                    Kwota do zapłacenia : @string.Format("{0:c}", Model.CartHeader.OrderTotal) <br />
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+
+                                <div class="col-12 ">
+                                    <button type="submit" class="btn btn-success form-control ">
+                                        <span>Złóż zamówienie</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+}
+
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function(){
+           $(".form_datetime").datetimepicker({ format: 'yyyy-mm-dd hh:ii'});
+           $('.form_datetime').datetimepicker('setStartDate', new Date());
+        });
+    </script>
+}
