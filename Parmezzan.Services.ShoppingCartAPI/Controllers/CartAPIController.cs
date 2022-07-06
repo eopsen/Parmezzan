@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Parmezzan.Services.ShoppingCartAPI.Messages;
 using Parmezzan.Services.ShoppingCartAPI.Models.Dto;
 using Parmezzan.Services.ShoppingCartAPI.Repository;
 
@@ -83,6 +84,32 @@ namespace Parmezzan.Services.ShoppingCartAPI.Controllers
             try
             {
                 _response.Result = await _cartRepository.ClearCart(userId);
+            }
+            catch (Exception ex)
+            {
+                _response.IsSuccess = false;
+                _response.ErrorMessages = new List<string>() { ex.ToString() };
+            }
+            return _response;
+        }
+
+
+
+        [HttpPost("Checkout")]
+        public async Task<object> Checkout(CheckoutHeaderDto checkoutHeader)
+        {
+            try
+            {
+                var cartDto = await _cartRepository.GetCartByUserId(checkoutHeader.UserId);
+
+                if (cartDto == null)
+                {
+                    return BadRequest();
+                }
+
+                checkoutHeader.CartDetails = cartDto.CartDetails;
+                //TODO send messages
+
             }
             catch (Exception ex)
             {

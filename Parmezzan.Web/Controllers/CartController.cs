@@ -41,6 +41,29 @@ namespace Parmezzan.Web.Controllers
             return View(await LoadCartDtoBasedOnLoggedUser());
         }
 
+        [HttpPost]
+        [ActionName("Checkout")]
+        public async Task<IActionResult> CheckoutPost(CartDto cartDto)
+        {
+            try
+            {
+                var accessToken = await HttpContext.GetTokenAsync("access_token");
+                var response = await _cartService.Checkout<ResponseDto>(cartDto.CartHeader, accessToken);
+
+                return RedirectToAction(nameof(Confirmation));
+
+            }
+            catch (Exception ex)
+            {
+                return View(cartDto);
+            }
+        }
+
+        public async Task<IActionResult> Confirmation()
+        {
+            return View();
+        }
+
         private async Task<CartDto> LoadCartDtoBasedOnLoggedUser()
         {
             var userId = User.Claims.Where(u => u.Type == "sub")?.FirstOrDefault()?.Value;

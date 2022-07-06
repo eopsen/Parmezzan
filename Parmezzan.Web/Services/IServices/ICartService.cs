@@ -8,5 +8,6 @@ namespace Parmezzan.Web.Services.IServices
         Task<T> AddToCartAsync<T>(CartDto cartDto, string token = null);
         Task<T> UpdateCartAsync<T>(CartDto cartDto, string token = null);
         Task<T> RemoveCartAsync<T>(int cartId, string token = null);
+        Task<T>Checkout<T>(CartHeaderDto cartHeader, string token = null);
     }
 }
