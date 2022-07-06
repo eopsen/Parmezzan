@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parmezzan.Services.Shopping
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parmezzan.Services.OrderAPI", "Parmezzan.Services.OrderAPI\Parmezzan.Services.OrderAPI.csproj", "{3DB8C312-5C54-4C15-8433-ED54A9A3C10F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Payments", "Payments", "{2E8AF48F-5005-49E8-A346-8B067CBB8949}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parmezzan.PaymentProcessor", "Parmezzan.PaymentProcessor\Parmezzan.PaymentProcessor.csproj", "{A02C2F85-777E-40ED-860B-F7FF5CE9D1EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +47,10 @@ Global
 		{3DB8C312-5C54-4C15-8433-ED54A9A3C10F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DB8C312-5C54-4C15-8433-ED54A9A3C10F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DB8C312-5C54-4C15-8433-ED54A9A3C10F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A02C2F85-777E-40ED-860B-F7FF5CE9D1EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A02C2F85-777E-40ED-860B-F7FF5CE9D1EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A02C2F85-777E-40ED-860B-F7FF5CE9D1EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A02C2F85-777E-40ED-860B-F7FF5CE9D1EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +61,7 @@ Global
 		{6E38ECC3-C73E-45D7-A6CC-17BE5817142F} = {13506C3C-0E72-470E-98A6-34F1CE051008}
 		{12757BEF-2E56-4968-8011-6FAB4656EC68} = {13506C3C-0E72-470E-98A6-34F1CE051008}
 		{3DB8C312-5C54-4C15-8433-ED54A9A3C10F} = {13506C3C-0E72-470E-98A6-34F1CE051008}
+		{A02C2F85-777E-40ED-860B-F7FF5CE9D1EB} = {2E8AF48F-5005-49E8-A346-8B067CBB8949}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {98774BE1-34A5-4635-8E0A-DE7CE7A14C10}
