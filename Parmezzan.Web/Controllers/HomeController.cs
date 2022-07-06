@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Parmezzan.Web.Models;
@@ -31,6 +32,19 @@ namespace Parmezzan.Web.Controllers
             return View(result);
         }
 
+        [Authorize]
+        public async Task<IActionResult> Details(int productId)
+        {
+            ProductDto result = null;
+            var accessToken = await HttpContext.GetTokenAsync("access_token");
+            var response = await _productService.GetProductByIdAsync<ResponseDto>(productId, accessToken);
+            if (response != null && response.IsSuccess)
+            {
+                result = JsonConvert.DeserializeObject<ProductDto>(Convert.ToString(response.Result));
+            }
+
+            return View(result);
+        }
         public IActionResult Privacy()
         {
             return View();
