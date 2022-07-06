@@ -11,7 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{13
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Parmezzan.Services.ProductAPI", "Parmezzan.Services.ProductAPI\Parmezzan.Services.ProductAPI.csproj", "{E0F50005-A6C5-4B99-91E9-064F448D035C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parmezzan.Services.Identity", "Parmezzan.Services.Identity\Parmezzan.Services.Identity.csproj", "{6E38ECC3-C73E-45D7-A6CC-17BE5817142F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Parmezzan.Services.Identity", "Parmezzan.Services.Identity\Parmezzan.Services.Identity.csproj", "{6E38ECC3-C73E-45D7-A6CC-17BE5817142F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parmezzan.Services.ShoppingCartAPI", "Parmezzan.Services.ShoppingCartAPI\Parmezzan.Services.ShoppingCartAPI.csproj", "{12757BEF-2E56-4968-8011-6FAB4656EC68}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,10 @@ Global
 		{6E38ECC3-C73E-45D7-A6CC-17BE5817142F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E38ECC3-C73E-45D7-A6CC-17BE5817142F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E38ECC3-C73E-45D7-A6CC-17BE5817142F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12757BEF-2E56-4968-8011-6FAB4656EC68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12757BEF-2E56-4968-8011-6FAB4656EC68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12757BEF-2E56-4968-8011-6FAB4656EC68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12757BEF-2E56-4968-8011-6FAB4656EC68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +45,7 @@ Global
 		{5AAA1944-03C0-4F30-95AA-4AEF29845CA1} = {E305A4C0-1179-4B09-9F53-EA740DB36BFE}
 		{E0F50005-A6C5-4B99-91E9-064F448D035C} = {13506C3C-0E72-470E-98A6-34F1CE051008}
 		{6E38ECC3-C73E-45D7-A6CC-17BE5817142F} = {13506C3C-0E72-470E-98A6-34F1CE051008}
+		{12757BEF-2E56-4968-8011-6FAB4656EC68} = {13506C3C-0E72-470E-98A6-34F1CE051008}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {98774BE1-34A5-4635-8E0A-DE7CE7A14C10}
