@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Parmezzan.Services.Identity
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parmezzan.Services.ShoppingCartAPI", "Parmezzan.Services.ShoppingCartAPI\Parmezzan.Services.ShoppingCartAPI.csproj", "{12757BEF-2E56-4968-8011-6FAB4656EC68}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parmezzan.Services.OrderAPI", "Parmezzan.Services.OrderAPI\Parmezzan.Services.OrderAPI.csproj", "{3DB8C312-5C54-4C15-8433-ED54A9A3C10F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{12757BEF-2E56-4968-8011-6FAB4656EC68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12757BEF-2E56-4968-8011-6FAB4656EC68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12757BEF-2E56-4968-8011-6FAB4656EC68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DB8C312-5C54-4C15-8433-ED54A9A3C10F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DB8C312-5C54-4C15-8433-ED54A9A3C10F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DB8C312-5C54-4C15-8433-ED54A9A3C10F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DB8C312-5C54-4C15-8433-ED54A9A3C10F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{E0F50005-A6C5-4B99-91E9-064F448D035C} = {13506C3C-0E72-470E-98A6-34F1CE051008}
 		{6E38ECC3-C73E-45D7-A6CC-17BE5817142F} = {13506C3C-0E72-470E-98A6-34F1CE051008}
 		{12757BEF-2E56-4968-8011-6FAB4656EC68} = {13506C3C-0E72-470E-98A6-34F1CE051008}
+		{3DB8C312-5C54-4C15-8433-ED54A9A3C10F} = {13506C3C-0E72-470E-98A6-34F1CE051008}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {98774BE1-34A5-4635-8E0A-DE7CE7A14C10}
