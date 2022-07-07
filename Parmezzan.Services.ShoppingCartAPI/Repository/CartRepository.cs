@@ -19,9 +19,7 @@ namespace Parmezzan.Services.ShoppingCartAPI.Repository
 
         public async Task<bool> ClearCart(string userId)
         {
-            var cartHeaderFromDb = await _db.CartHeaders.AsNoTracking()
-                .FirstOrDefaultAsync(c => c.UserId == userId);
-
+            var cartHeaderFromDb = await _db.CartHeaders.FirstOrDefaultAsync(c => c.UserId == userId);
             if (cartHeaderFromDb != null)
             {
                 _db.CartDetails.RemoveRange(_db.CartDetails.Where(u => u.CartHeaderId == cartHeaderFromDb.CartHeaderId));
@@ -102,7 +100,6 @@ namespace Parmezzan.Services.ShoppingCartAPI.Repository
         {
             try
             {
-
                 var cartDetails = await _db.CartDetails.FirstOrDefaultAsync(p => p.CartDetailId == cartDetailsId);
 
                 int totalCountOfCartItems = _db.CartDetails
