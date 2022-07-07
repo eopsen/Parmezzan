@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.OpenApi.Models;
 using Parmezzan.Services.EmailSender.DbContextes;
+using Parmezzan.Services.EmailSender.Messaging;
 using Parmezzan.Services.EmailSender.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,8 @@ builder.Services.AddScoped<IEmailRepository, EmailRepository>();
 var optionBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
 optionBuilder.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 builder.Services.AddSingleton(new EmailRepository(optionBuilder.Options));
+
+builder.Services.AddHostedService<RabbitMQPaymentConsumer>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
