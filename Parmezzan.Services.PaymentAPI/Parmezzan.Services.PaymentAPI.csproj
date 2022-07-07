@@ -7,11 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.4.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\Parmezzan.MessageBus\Parmezzan.MessageBus.csproj" />
+    <ProjectReference Include="..\Parmezzan.PaymentProcessor\Parmezzan.PaymentProcessor.csproj" />
   </ItemGroup>
 
 </Project>

@@ -98,7 +98,7 @@ namespace Parmezzan.Services.OrderAPI.Messaging
 
             try
             {
-                //_rabbitMQOrderMessageSender.SendMessage(paymentRequestMessage, "orderpaymentprocesstopic");
+                _rabbitMQOrderMessageSender.SendMessage(paymentRequestMessage, "orderpaymentprocesstopic");
             }
             catch (Exception e)
             {
