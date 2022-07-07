@@ -8,16 +8,16 @@ using System.Text;
 
 namespace Parmezzan.Services.OrderAPI.Messaging
 {
-    public class RabbitMQConsumer : BackgroundService
+    public class RabbitMQCheckoutConsumer : BackgroundService
     {
         private readonly OrderRepository _orderRepository;
         private IConnection _connection;
         private IModel _channel;
 
-        public RabbitMQConsumer(OrderRepository orderRepository)
+        public RabbitMQCheckoutConsumer(OrderRepository orderRepository)
         {
             _orderRepository = orderRepository;
-
+           
             var factory = new ConnectionFactory
             {
                 HostName = "localhost",
@@ -66,6 +66,7 @@ namespace Parmezzan.Services.OrderAPI.Messaging
                 Phone = checkoutHeaderDto.Phone,
                 PickupDateTime = checkoutHeaderDto.PickupDateTime
             };
+
             foreach (var detailList in checkoutHeaderDto.CartDetails)
             {
                 OrderDetails orderDetails = new()
