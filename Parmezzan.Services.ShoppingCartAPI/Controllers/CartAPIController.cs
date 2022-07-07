@@ -113,7 +113,7 @@ namespace Parmezzan.Services.ShoppingCartAPI.Controllers
                 checkoutHeader.CartDetails = cartDto.CartDetails;
 
                 _rabbitMQCartMessageSender.SendMessage(checkoutHeader, "checkoutqueue");
-                await _cartRepository.ClearCart(checkoutHeader.UserId);
+                //await _cartRepository.ClearCart(checkoutHeader.UserId);
 
             }
             catch (Exception ex)
