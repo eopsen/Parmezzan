@@ -6,6 +6,5 @@ namespace Parmezzan.Services.OrderAPI.Repository
     {
         Task<bool> AddOrder(OrderHeader orderHeader);
         Task UpdateOrderPaymentStatus(int orderHeaderId, bool paid);
-
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Parmezzan.Services.OrderAPI.Messages;
 using Parmezzan.Services.OrderAPI.Models;
+using Parmezzan.Services.OrderAPI.RabbitMQSender;
 using Parmezzan.Services.OrderAPI.Repository;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
@@ -13,8 +14,9 @@ namespace Parmezzan.Services.OrderAPI.Messaging
         private readonly OrderRepository _orderRepository;
         private IConnection _connection;
         private IModel _channel;
+        private readonly IRabbitMQOrderMessageSender _rabbitMQOrderMessageSender;
 
-        public RabbitMQCheckoutConsumer(OrderRepository orderRepository)
+        public RabbitMQCheckoutConsumer(OrderRepository orderRepository, IRabbitMQOrderMessageSender rabbitMQOrderMessageSender)
         {
             _orderRepository = orderRepository;
            
@@ -25,6 +27,7 @@ namespace Parmezzan.Services.OrderAPI.Messaging
                 Password = "guest"
             };
 
+            _rabbitMQOrderMessageSender = rabbitMQOrderMessageSender;
             _connection = factory.CreateConnection();
             _channel = _connection.CreateModel();
             _channel.QueueDeclare(queue: "checkoutqueue", false, false, false, arguments: null);
@@ -95,7 +98,7 @@ namespace Parmezzan.Services.OrderAPI.Messaging
 
             try
             {
-                //TODO request payment
+                //_rabbitMQOrderMessageSender.SendMessage(paymentRequestMessage, "orderpaymentprocesstopic");
             }
             catch (Exception e)
             {

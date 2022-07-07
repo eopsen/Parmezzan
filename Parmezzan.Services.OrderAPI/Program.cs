@@ -5,6 +5,7 @@ using Microsoft.OpenApi.Models;
 using Parmezzan.Services.OrderAPI;
 using Parmezzan.Services.OrderAPI.DbContextes;
 using Parmezzan.Services.OrderAPI.Messaging;
+using Parmezzan.Services.OrderAPI.RabbitMQSender;
 using Parmezzan.Services.OrderAPI.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +18,7 @@ optionBuilder.UseSqlServer(builder.Configuration.GetConnectionString("DefaultCon
 
 builder.Services.AddHostedService<RabbitMQCheckoutConsumer>();
 builder.Services.AddSingleton(new OrderRepository(optionBuilder.Options));
+builder.Services.AddSingleton<IRabbitMQOrderMessageSender, RabbitMQOrderMessageSender>();
 
 builder.Services.AddControllers();
 builder.Services.AddAuthentication("Bearer")
