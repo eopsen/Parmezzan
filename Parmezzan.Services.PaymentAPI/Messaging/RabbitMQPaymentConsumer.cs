@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Parmezzan.PaymentProcessor;
 using Parmezzan.Services.PaymentAPI.Messages;
+using Parmezzan.Services.PaymentAPI.RabbitMQSender;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
@@ -12,9 +13,9 @@ namespace Parmezzan.Services.PaymentAPI.Messaging
         private IConnection _connection;
         private IModel _channel;
         private readonly IProcessPayment _processPayment;
+        private readonly IRabbitMQPaymentMessageSender _rabbitMQPaymentMessageSender;
 
-
-        public RabbitMQPaymentConsumer(IProcessPayment processPayment)
+        public RabbitMQPaymentConsumer(IProcessPayment processPayment, IRabbitMQPaymentMessageSender rabbitMQPaymentMessageSender)
         {
             _processPayment = processPayment;
 
@@ -28,6 +29,7 @@ namespace Parmezzan.Services.PaymentAPI.Messaging
             _connection = factory.CreateConnection();
             _channel = _connection.CreateModel();
             _channel.QueueDeclare(queue: "orderpaymentprocesstopic", false, false, false, arguments: null);
+            _rabbitMQPaymentMessageSender = rabbitMQPaymentMessageSender;
         }
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
@@ -43,7 +45,7 @@ namespace Parmezzan.Services.PaymentAPI.Messaging
 
                 _channel.BasicAck(ea.DeliveryTag, false);
             };
-            _channel.BasicConsume("checkoutqueue", false, consumer);
+            _channel.BasicConsume("orderpaymentprocesstopic", false, consumer);
 
             return Task.CompletedTask;
         }
@@ -57,8 +59,7 @@ namespace Parmezzan.Services.PaymentAPI.Messaging
                 Email = paymentRequestMessage.Email
             };
 
-
-            //TODO: send update order status message
+            _rabbitMQPaymentMessageSender.SendMessage(updatePaymentResultMessage, string.Empty);
 
         }
     }

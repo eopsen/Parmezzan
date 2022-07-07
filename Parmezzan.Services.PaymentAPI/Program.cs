@@ -1,5 +1,6 @@
 using Parmezzan.PaymentProcessor;
 using Parmezzan.Services.PaymentAPI.Messaging;
+using Parmezzan.Services.PaymentAPI.RabbitMQSender;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddSingleton<IProcessPayment, ProcessPayment>();
 builder.Services.AddHostedService<RabbitMQPaymentConsumer>();
+builder.Services.AddSingleton<IRabbitMQPaymentMessageSender, RabbitMQPaymentMessageSender>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
