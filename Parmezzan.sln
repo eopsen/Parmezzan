@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parmezzan.Services.PaymentA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parmezzan.Services.EmailSender", "Parmezzan.Services.EmailSender\Parmezzan.Services.EmailSender.csproj", "{B06F579E-54FE-44A7-94EA-A9E391A4CDE0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateway", "Gateway", "{11E64D7C-404A-4D86-BAFB-6C23ED91C105}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parmezzan.GatewaySolution", "Parmezzan.GatewaySolution\Parmezzan.GatewaySolution.csproj", "{8FC48EAB-87C6-4100-9329-57E7FD6FBB03}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +75,10 @@ Global
 		{B06F579E-54FE-44A7-94EA-A9E391A4CDE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B06F579E-54FE-44A7-94EA-A9E391A4CDE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B06F579E-54FE-44A7-94EA-A9E391A4CDE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FC48EAB-87C6-4100-9329-57E7FD6FBB03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FC48EAB-87C6-4100-9329-57E7FD6FBB03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FC48EAB-87C6-4100-9329-57E7FD6FBB03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FC48EAB-87C6-4100-9329-57E7FD6FBB03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,6 +93,7 @@ Global
 		{5B55C674-648D-4AAD-80DB-DEBAAD0F90C7} = {7F4E7567-F606-40A9-9DDE-19C3E0ED69E0}
 		{94BFF78B-3FEC-45BB-B8D2-D292EF1E2ABF} = {13506C3C-0E72-470E-98A6-34F1CE051008}
 		{B06F579E-54FE-44A7-94EA-A9E391A4CDE0} = {13506C3C-0E72-470E-98A6-34F1CE051008}
+		{8FC48EAB-87C6-4100-9329-57E7FD6FBB03} = {11E64D7C-404A-4D86-BAFB-6C23ED91C105}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {98774BE1-34A5-4635-8E0A-DE7CE7A14C10}
